@@ -1,0 +1,22 @@
+{
+  "name": "dupin-web",
+  "version": "1.0.0",
+  "description": "Dupin website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "s3-deploy":"aws s3 sync public/ s3://dupin-landing-page",
+    "cf-destroy-cache": "aws cloudfront create-invalidation --distribution-id ERN35069NGUH1 --paths /*",
+    "deploy":"npm run s3-deploy && npm run cf-destroy-cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dupin-App/landing-page.git"
+  },
+  "author": "Dupin LLC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dupin-App/landing-page/issues"
+  },
+  "homepage": "https://github.com/Dupin-App/landing-page#readme"
+}
